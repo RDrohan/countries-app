@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from './services/api.service';
 
 @Component({
@@ -6,9 +6,9 @@ import { ApiService } from './services/api.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'countries-app';
-  private data: Array<object> = [];
+export class AppComponent implements OnInit {
+  title: String = 'countries-app';
+  data: Array<object> = [];
 
   constructor(private apiService: ApiService) { }
 

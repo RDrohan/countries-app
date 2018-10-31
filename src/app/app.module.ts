@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

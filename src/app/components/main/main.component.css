@@ -1,0 +1,10 @@
+mat-list {
+    text-align: center;
+}
+
+@media (min-width:640px) {
+    mat-list {
+        width: 60%;
+        margin: 0 auto;
+    }
+}

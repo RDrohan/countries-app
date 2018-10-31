@@ -13,4 +13,8 @@ export class ApiService {
   getAllCountries(){
     return this.httpClient.get(`${this.baseURL}/all`);
   }
+
+  getCountry(name: String) {
+    return this.httpClient.get(`${this.baseURL}/name/${name}`);
+  }
 }

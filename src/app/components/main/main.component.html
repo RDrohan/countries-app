@@ -2,7 +2,7 @@
   <mat-list-item *ngFor="let country of countries">
     <img matListAvatar src="{{country.flag}}" alt="{{country.name}}">
     <h3 matLine>{{country.name}}</h3>
-    <button mat-mini-fab color="primary">
+    <button mat-mini-fab color="primary" [routerLink]="'country/'+country.name">
       <mat-icon>info</mat-icon>
     </button>
   </mat-list-item>

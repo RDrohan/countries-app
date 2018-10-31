@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
     this.getAllCountries();
   }
 
-  public getAllCountries() {
+  getAllCountries() {
     this.apiService.getAllCountries().subscribe((data: Array<object>) => {
       this.countries = data;
     });

@@ -1,6 +1,12 @@
-<p>
-  {{country.name}}
-</p>
-<button mat-mini-fab color="primary" (click)="goBack()">
-  <mat-icon>keyboard_arrow_left</mat-icon>
-</button>
+<div class="country-container">
+  <img class="country-flag" src="{{country.flag}}" alt="{{country.name}}">
+  <p class="mat-display-3">
+    {{country.name}}
+  </p>
+  <p class="mat-title">
+    {{country.name}}'s Native Name
+  </p>
+  <p class="mat-subheading-2">
+    {{country.nativeName}}
+  </p>
+</div>

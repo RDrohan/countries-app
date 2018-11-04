@@ -3,10 +3,30 @@
   <p class="mat-display-3">
     {{country.name}}
   </p>
-  <p class="mat-title">
-    {{country.name}}'s Native Name
-  </p>
-  <p class="mat-subheading-2">
-    {{country.nativeName}}
-  </p>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Basic Information
+        </mat-panel-title>
+        <mat-panel-description>
+          {{country.name}}'s native name and capital
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item>
+          <h3 matLine>Native Name</h3>
+          <p matLine>
+            <span>{{country.nativeName}}</span>
+          </p>
+        </mat-list-item>
+        <mat-list-item>
+          <h3 matLine>Capital</h3>
+          <p matLine>
+            <span>{{country.capital}}</span>
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

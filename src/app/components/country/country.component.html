@@ -3,7 +3,37 @@
   <p class="mat-display-3">
     {{country.name}}
   </p>
-  <mat-accordion>
+  <mat-accordion class="headers-align">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Codes
+        </mat-panel-title>
+        <mat-panel-description>
+          All those fancy codes and spellings!
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item>
+          <h3 matLine>Alpha 2 Code</h3>
+          <p matLine>
+            <span>{{country.alpha2Code}}</span>
+          </p>
+        </mat-list-item>
+        <mat-list-item>
+          <h3 matLine>Alpha 3 Code</h3>
+          <p matLine>
+            <span>{{country.alpha3Code}}</span>
+          </p>
+        </mat-list-item>
+        <mat-list-item>
+          <h3 matLine>Alternative Spellings</h3>
+          <p matLine *ngFor="let spelling of country.altSpellings">
+            <span>{{spelling}}</span>
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -18,6 +48,18 @@
           <h3 matLine>Native Name</h3>
           <p matLine>
             <span>{{country.nativeName}}</span>
+          </p>
+        </mat-list-item>
+        <mat-list-item>
+          <h3 matLine>Trigramme</h3>
+          <p matLine>
+            <span>{{country.cioc}}</span>
+          </p>
+        </mat-list-item>
+        <mat-list-item>
+          <h3 matLine>Demonym</h3>
+          <p matLine>
+            <span>{{country.demonym}}</span>
           </p>
         </mat-list-item>
         <mat-list-item>

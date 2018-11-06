@@ -1,4 +1,4 @@
-<div class="country-container">
+<div class="country-container" >
   <img class="country-flag" src="{{country.flag}}" alt="{{country.name}}">
   <p class="mat-display-3">
     {{country.name}}
@@ -26,7 +26,7 @@
             <span>{{country.alpha3Code}}</span>
           </p>
         </mat-list-item>
-        <mat-list-item>
+        <mat-list-item *ngIf="country.altSpellings && country.altSpellings.length">
           <h3 matLine>Alternative Spellings</h3>
           <p matLine *ngFor="let spelling of country.altSpellings">
             <span>{{spelling}}</span>
@@ -66,6 +66,24 @@
           <h3 matLine>Capital</h3>
           <p matLine>
             <span>{{country.capital}}</span>
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Languages
+        </mat-panel-title>
+        <mat-panel-description *ngIf="country.languages && country.languages.length">
+          {{country.name}}'s {{country.languages.length == 1 ? 'only' : country?.languages.length}} official {{country.languages.length > 1 ? 'languages' : 'language'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item *ngFor="let language of country.languages">
+          <h3 matLine>{{language.name}}</h3>
+          <p matLine>
+            <span>{{language.nativeName}}</span>
           </p>
         </mat-list-item>
       </mat-list>

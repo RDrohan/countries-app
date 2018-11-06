@@ -11,7 +11,6 @@ import { ApiService } from '../../services/api.service';
 export class CountryComponent implements OnInit {
   name: String = '';
   country: object = {};
-  panelOpenState = false;
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {

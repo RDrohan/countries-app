@@ -14,6 +14,12 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <mat-list>
+        <mat-list-item *ngIf="country.callingCodes && country.callingCodes.length">
+          <h3 matLine>Calling {{country.callingCodes.length > 1 ? 'Codes' : 'Code'}}</h3>
+          <p matLine *ngFor="let callingCode of country.callingCodes">
+            <span>+{{callingCode}}</span>
+          </p>
+        </mat-list-item>
         <mat-list-item>
           <h3 matLine>Alpha 2 Code</h3>
           <p matLine>
@@ -89,7 +95,7 @@
         </mat-list-item>
       </mat-list>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel *ngIf="country.borders && country.borders.length;else no_borders">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Bordering Nations
@@ -98,10 +104,57 @@
           {{country.name}} shares a border with the following countries:
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <mat-list *ngIf="country.borders && country.borders.length">
+      <mat-list *ngIf="country.borders && country.borders.length;else no_borders">
         <mat-list-item *ngFor="let borderCountry of country.borders">
           <img matListAvatar src="https://restcountries.eu/data/{{borderCountry.toLowerCase()}}.svg" alt="{{borderCountry}}">
           <h3 matLine>{{borderCountry}}</h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+    <ng-template #no_borders>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Bordering Nations
+          </mat-panel-title>
+          <mat-panel-description>
+            {{country.name}} doesn't share a border with any country
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-list-item>
+            <h3 matLine>Why did you even bother?</h3>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </ng-template>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Geography
+        </mat-panel-title>
+        <mat-panel-description>
+          Geographical information relating to {{country.name}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item>
+          <h3 matLine>Area</h3>
+          <p matLine>
+            <span>{{country.area}} km<sup>2</sup></span>
+          </p>
+        </mat-list-item>
+        <mat-list-item>
+          <h3 matLine>Population</h3>
+          <p matLine>
+            <span>{{country.population}} people</span>
+          </p>
+        </mat-list-item>
+        <mat-list-item>
+          <h3 matLine>Region (Subregion)</h3>
+          <p matLine>
+            <span>{{country.region}} ({{country.subregion}})</span>
+          </p>
         </mat-list-item>
       </mat-list>
     </mat-expansion-panel>

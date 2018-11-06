@@ -158,5 +158,23 @@
         </mat-list-item>
       </mat-list>
     </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Translations
+        </mat-panel-title>
+        <mat-panel-description>
+          What's {{country.name}} in your language?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list *ngIf="country.translations">
+        <mat-list-item *ngFor="let translation of country.translations | keyvalue">
+          <h3 matLine>{{getLanguage(translation.key)}}</h3>
+          <p matLine>
+            <span>{{translation.value || 'No translation'}}</span>
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
   </mat-accordion>
 </div>

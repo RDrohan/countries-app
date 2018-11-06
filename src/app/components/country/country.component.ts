@@ -25,4 +25,31 @@ export class CountryComponent implements OnInit {
       console.log(countryData);
     });
   }
+
+  getLanguage(langCode: string) {
+    switch(langCode) {
+      case 'br':
+        return 'Brazilian Portuguese';
+      case 'de':
+        return 'German';
+      case 'es':
+        return 'Spanish';
+      case 'fa':
+        return 'Farsi';
+      case 'fr':
+        return 'French';
+      case 'hr':
+        return 'Croatian';
+      case 'it':
+        return 'Croatian'
+      case 'ja':
+        return 'Japanese'
+      case 'nl':
+        return 'Dutch'
+      case 'pt':
+        return 'Portuguese'
+      default:
+        return 'English';
+    }
+  }
 }

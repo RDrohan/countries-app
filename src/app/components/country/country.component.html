@@ -1,4 +1,4 @@
-<div class="country-container" >
+<div class="country-container">
   <img class="country-flag" src="{{country.flag}}" alt="{{country.name}}">
   <p class="mat-display-3">
     {{country.name}}
@@ -76,7 +76,8 @@
           Languages
         </mat-panel-title>
         <mat-panel-description *ngIf="country.languages && country.languages.length">
-          {{country.name}}'s {{country.languages.length == 1 ? 'only' : country?.languages.length}} official {{country.languages.length > 1 ? 'languages' : 'language'}}
+          {{country.name}}'s {{country.languages.length == 1 ? 'only' : country?.languages.length}} official
+          {{country.languages.length > 1 ? 'languages' : 'language'}}
         </mat-panel-description>
       </mat-expansion-panel-header>
       <mat-list>
@@ -85,6 +86,22 @@
           <p matLine>
             <span>{{language.nativeName}}</span>
           </p>
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Bordering Nations
+        </mat-panel-title>
+        <mat-panel-description>
+          {{country.name}} shares a border with the following countries:
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list *ngIf="country.borders && country.borders.length">
+        <mat-list-item *ngFor="let borderCountry of country.borders">
+          <img matListAvatar src="https://restcountries.eu/data/{{borderCountry.toLowerCase()}}.svg" alt="{{borderCountry}}">
+          <h3 matLine>{{borderCountry}}</h3>
         </mat-list-item>
       </mat-list>
     </mat-expansion-panel>

@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class ApiService {
   readonly baseURL: String = 'https://restcountries.eu/rest/v2';
-
+  
   constructor(private httpClient: HttpClient) { }
 
   getAllCountries(){

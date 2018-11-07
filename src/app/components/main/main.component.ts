@@ -8,6 +8,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class MainComponent implements OnInit {
   countries: Array<object> = [];
+  searchText: string;
 
   constructor(private apiService: ApiService) { }
 

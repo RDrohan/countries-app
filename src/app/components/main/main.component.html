@@ -1,9 +1,14 @@
-<mat-list>
-  <mat-list-item *ngFor="let country of countries">
-    <img matListAvatar src="{{country.flag}}" alt="{{country.name}}">
-    <h3 matLine>{{country.name}}</h3>
-    <button mat-mini-fab color="primary" [routerLink]="'country/'+country.name">
-      <mat-icon>info</mat-icon>
-    </button>
-  </mat-list-item>
-</mat-list>
+<div class="main-container">
+  <mat-form-field class="full-width">
+    <input matInput [(ngModel)]="searchText" placeholder="Search a Country">
+  </mat-form-field>
+  <mat-list>
+    <mat-list-item *ngFor="let country of countries | filter: {name: searchText};">
+      <img matListAvatar src="{{country.flag}}" alt="{{country.name}}">
+      <h3 matLine>{{country.name}}</h3>
+      <button mat-mini-fab color="primary" [routerLink]="'country/'+country.name">
+        <mat-icon>info</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>

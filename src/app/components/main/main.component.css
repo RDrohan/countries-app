@@ -1,9 +1,13 @@
-mat-list {
+.main-container {
     text-align: center;
 }
 
+.full-width {
+    width: 100%;
+}
+
 @media (min-width:640px) {
-    mat-list {
+    .main-container {
         width: 60%;
         margin: 0 auto;
     }

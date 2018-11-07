@@ -38,6 +38,12 @@
             <span>{{spelling}}</span>
           </p>
         </mat-list-item>
+        <mat-list-item *ngIf="country.topLevelDomain && country.topLevelDomain.length">
+          <h3 matLine>Top Level {{country.topLevelDomain.length > 1 ? 'Domains' : 'Domain'}}</h3>
+          <p matLine *ngFor="let domain of country.topLevelDomain">
+            <span>{{domain}}</span>
+          </p>
+        </mat-list-item>
       </mat-list>
     </mat-expansion-panel>
     <mat-expansion-panel>
@@ -59,7 +65,7 @@
         <mat-list-item>
           <h3 matLine>Trigramme</h3>
           <p matLine>
-            <span>{{country.cioc}}</span>
+            <span>{{country.cioc || country.alpha3Code}}</span>
           </p>
         </mat-list-item>
         <mat-list-item>
@@ -72,6 +78,12 @@
           <h3 matLine>Capital</h3>
           <p matLine>
             <span>{{country.capital}}</span>
+          </p>
+        </mat-list-item>
+        <mat-list-item *ngIf="country.currencies && country.currencies.length">
+          <h3 matLine>{{country.currencies.length > 1 ? 'Currencies' : 'Currency'}}</h3>
+          <p matLine *ngFor="let currency of country.currencies">
+            {{currency.name}} ({{currency.code}} - {{currency.symbol}})
           </p>
         </mat-list-item>
       </mat-list>
@@ -154,6 +166,12 @@
           <h3 matLine>Region (Subregion)</h3>
           <p matLine>
             <span>{{country.region}} ({{country.subregion}})</span>
+          </p>
+        </mat-list-item>
+        <mat-list-item *ngIf="country.timezones && country.timezones.length">
+          <h3 matLine>{{country.timezones.length > 1 ? 'Timezones' : 'Timezone'}}</h3>
+          <p matLine *ngFor="let timezone of country.timezones">
+            <span>{{timezone}}</span>
           </p>
         </mat-list-item>
       </mat-list>

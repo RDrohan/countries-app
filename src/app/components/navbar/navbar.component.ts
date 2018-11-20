@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -7,8 +8,14 @@ import { Location } from '@angular/common';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  path: String = '';
 
-  constructor(private location: Location) { }
+  constructor(private router: Router, private location: Location) {
+    this.router.events.subscribe((val) => {
+      this.path = this.location.path();
+      console.log(this.path);
+    });
+  }
 
   ngOnInit() {
   }

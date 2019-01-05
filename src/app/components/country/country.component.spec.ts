@@ -22,4 +22,9 @@ describe('CountryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should print details', () => {
+    console.log(component);
+    console.log(fixture);
+  });
 });
